@@ -21,3 +21,21 @@ button {
 button:hover {
     background: #2178f1;
 }
+
+.deck {
+    width: 10vh;
+    height: 15vh;
+    margin: 2vh auto;
+    border-radius: 12px;
+    background:linear-gradient(135deg,#fd8c78,#e92f22);
+    border: 5px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;font-weight: bold;
+    box-shadow:0 8px 20px rgba(0,0,0,.4);
+}
+
+.deck.empty {
+    background: #851010;
+    border: 5px solid #333;
+}
