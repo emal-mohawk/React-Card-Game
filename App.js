@@ -41,4 +41,27 @@ function App() {
         setHand(selected);
         setPickedCardIds(null);
     }
+
+    return (
+        <>
+        <Deck deck={deck} drawCard={drawCard} />
+        <div className="buttons">
+            <button onClick={() => deal(5)}>Deal 5</button>
+            <button onClick={() => deal(7)}>Deal 7</button>
+        </div>
+
+        <div className="hand">
+            {hand.map((card, index) => (
+                <Card 
+                key={card.id}
+                value={card.value}
+                suit={card.suit}
+                picked={pickedCardIds === index}
+                />
+            ))}
+        </div>
+        </>
+    );
 }
+
+ReactDom.createRoot(document.querySelector("#root")).render(<App />);
