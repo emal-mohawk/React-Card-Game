@@ -13,3 +13,17 @@ function createDeck() {
     }
     return deck;
 }
+
+function App() {
+    const [deck, setDeck] = useState(createDeck());
+    const [hand, setHand] = useState([]);
+    const [pickedCardIds, setPickedCardIds] = useState(null);
+
+    function drawCard() {
+        if (deck.length === 0) return;
+        const index = Math.floor(Math.random() * deck.length);
+        const card = deck[index];
+        setDeck(deck.filter(c => c.id !== card.id));
+        setHand(hand.concat(card));
+    }
+}
