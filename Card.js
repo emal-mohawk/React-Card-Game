@@ -7,7 +7,7 @@ function Card({value, suit, picked, onClick}) {
             <div className="center">{suit}</div>
             <div className="corner bottom">{value}{suit}</div>
         </div>
-    )
+    );
 }
 
 export default Card;
