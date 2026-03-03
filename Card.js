@@ -9,5 +9,3 @@ function Card({value, suit, picked, onClick}) {
         </div>
     );
 }
-
-export default Card;

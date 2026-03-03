@@ -64,4 +64,4 @@ function App() {
     );
 }
 
-ReactDom.createRoot(document.querySelector("#root")).render(<App />);
+ReactDOM.createRoot(document.querySelector("#root")).render(<App />);
