@@ -1,3 +1,5 @@
+// StAuth10244: I Endrit Maloku, 000928195 certify that this material is my original work. No other person's work has been used without due acknowledgement. I have not made my work available to anyone else.
+
 const {useState} = React;
 
 const suits = ["♥","♦","♣","♠"];
@@ -17,7 +19,7 @@ function createDeck() {
 function App() {
     const [deck, setDeck] = useState(createDeck());
     const [hand, setHand] = useState([]);
-    const [pickedCardIds, setPickedCardIds] = useState(null);
+    const [pickedIndex, setPickedIndex] = useState(null);
 
     function drawCard() {
         if (deck.length === 0) return;
@@ -39,36 +41,36 @@ function App() {
 
         setDeck(copy);
         setHand(selected);
-        setPickedCardIds(null);
+        setPickedIndex(null);
     }
 
     function reset() {
         setDeck(createDeck());
         setHand([]);
-        setPickedCardIds(null);
+        setPickedIndex(null);
     }
 
     function togglePick(index) {
-        if (pickedCardIds === null) {
-            setPickedCardIds(index);
-        } else if (pickedCardIds === index) {
-            setPickedCardIds(null);
+        if (pickedIndex === null) {
+            setPickedIndex(index);
+        } else if (pickedIndex === index) {
+            setPickedIndex(null);
         } else {
             const newHand = hand.slice();
 
-            const temp = newHand[pickedCardIds];
-            newHand[pickedCardIds] = newHand[index];
+            const temp = newHand[pickedIndex];
+            newHand[pickedIndex] = newHand[index];
             newHand[index] = temp;
 
             setHand(newHand);
-            setPickedCardIds(null);
+            setPickedIndex(null);
         }
     }
 
     function toss() {
-        if (pickedCardIds === null) return;
-        setHand(hand.filter((_, i) => i !== pickedCardIds));
-        setPickedCardIds(null);
+        if (pickedIndex === null) return;
+        setHand(hand.filter((_, i) => i !== pickedIndex));
+        setPickedIndex(null);
     }
 
     function regroup() {
@@ -76,7 +78,7 @@ function App() {
             return Math.random() - 0.5;
         });
         setHand(shuffled);
-        setPickedCardIds(null);
+        setPickedIndex(null);
     }
 
     function wildcard() {
@@ -104,7 +106,7 @@ function App() {
                 key={card.id}
                 value={card.value}
                 suit={card.suit}
-                picked={pickedCardIds === index}
+                picked={pickedIndex === index}
                 onClick={() => togglePick(index)}
                 />
             ))}
