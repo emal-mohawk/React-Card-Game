@@ -1,3 +1,8 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: #207415;
@@ -84,4 +89,12 @@ button:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 32px;
+}
+.header {
+    background: #0078e9;
+    padding: 2vh;
+    box-shadow:0 8px 18px rgba(0,0,0,.35);
+}
+.header p {
+    margin-top: 1vh;
 }
