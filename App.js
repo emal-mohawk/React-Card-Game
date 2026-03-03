@@ -43,7 +43,7 @@ function App() {
     }
 
     function reset() {
-        setDeck(deck.concat(hand));
+        setDeck(createDeck());
         setHand([]);
         setPickedCardIds(null);
     }
