@@ -8,3 +8,16 @@ body {
 .app {
     padding: 4vh;
 }
+
+button {
+    margin: 1vh;
+    padding: 1vh 1.2vh;
+    border: none;
+    border-radius: 8px;
+    background: #437deb;
+    color: white;
+}
+
+button:hover {
+    background: #2178f1;
+}
