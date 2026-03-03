@@ -70,6 +70,22 @@ function App() {
         setHand(hand.filter((_, i) => i !== pickedCardIds));
         setPickedCardIds(null);
     }
+
+    function regroup() {
+        const shuffled = hand.slice().sort(function() {
+            return Math.random() - 0.5;
+        });
+        setHand(shuffled);
+        setPickedCardIds(null);
+    }
+
+    function wildcard() {
+        const suit = suits[Math.floor(Math.random() * suits.length)];
+        const value = values[Math.floor(Math.random() * values.length)];
+        const newCard = {id: Date.now(), suit, value};
+        setHand(hand.concat(newCard));
+    }
+
     return (
         <>
         <Deck deck={deck} drawCard={drawCard} />
@@ -78,6 +94,8 @@ function App() {
             <button onClick={() => deal(7)}>Deal 7</button>
             <button onClick={reset}>Reset</button>
             <button onClick={toss}>Toss</button>
+            <button onClick={regroup}>Regroup</button>
+            <button onClick={wildcard}>Wildcard</button>
         </div>
 
         <div className="hand">
