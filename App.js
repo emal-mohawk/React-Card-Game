@@ -65,6 +65,11 @@ function App() {
         }
     }
 
+    function toss() {
+        if (pickedCardIds === null) return;
+        setHand(hand.filter((_, i) => i !== pickedCardIds));
+        setPickedCardIds(null);
+    }
     return (
         <>
         <Deck deck={deck} drawCard={drawCard} />
@@ -72,6 +77,7 @@ function App() {
             <button onClick={() => deal(5)}>Deal 5</button>
             <button onClick={() => deal(7)}>Deal 7</button>
             <button onClick={reset}>Reset</button>
+            <button onClick={toss}>Toss</button>
         </div>
 
         <div className="hand">
