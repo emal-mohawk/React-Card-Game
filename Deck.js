@@ -9,3 +9,5 @@ function Deck({deck, drawCard}) {
         <div className="deck" onClick={drawCard}>Deck ({deck.length} cards left)</div>
     );
 }
+
+export default Deck;
