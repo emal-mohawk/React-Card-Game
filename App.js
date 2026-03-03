@@ -26,4 +26,19 @@ function App() {
         setDeck(deck.filter(c => c.id !== card.id));
         setHand(hand.concat(card));
     }
+
+    function deal(n) {
+        const fullDeck = deck.concat(hand);
+        let copy = fullDeck.slice();
+        let selected = [];
+
+        for (let i = 0; i < n && copy.length > 0; i++) {
+            const index = Math.floor(Math.random() * copy.length);
+            selected.push(copy.splice(index, 1)[0]);
+        }
+
+        setDeck(copy);
+        setHand(selected);
+        setPickedCardIds(null);
+    }
 }
