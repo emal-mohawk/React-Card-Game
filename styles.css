@@ -39,3 +39,49 @@ button:hover {
     background: #851010;
     border: 5px solid #333;
 }
+
+.hand {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1vh;
+    margin-top: 2vh;
+}
+
+.card {
+    width: 8vh;
+    height: 13vh;
+    background: white;
+    color: black;
+    border-radius: 12px;
+    position: relative;
+    box-shadow:0 8px 18px rgba(0,0,0,.35);
+}
+
+.card.red {
+    color: #ff4d4d;
+}
+
+.card.picked {
+    outline: 5px solid #ffe609;
+}
+
+.corner {
+    position: absolute;
+    font-size: 14px;
+    padding: 0.5vh;
+}
+
+.corner.bottom {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+}
