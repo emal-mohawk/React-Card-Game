@@ -48,6 +48,23 @@ function App() {
         setPickedCardIds(null);
     }
 
+    function togglePick(index) {
+        if (pickedCardIds === null) {
+            setPickedCardIds(index);
+        } else if (pickedCardIds === index) {
+            setPickedCardIds(null);
+        } else {
+            const newHand = hand.slice();
+
+            const temp = newHand[pickedCardIds];
+            newHand[pickedCardIds] = newHand[index];
+            newHand[index] = temp;
+
+            setHand(newHand);
+            setPickedCardIds(null);
+        }
+    }
+
     return (
         <>
         <Deck deck={deck} drawCard={drawCard} />
@@ -64,6 +81,7 @@ function App() {
                 value={card.value}
                 suit={card.suit}
                 picked={pickedCardIds === index}
+                onClick={() => togglePick(index)}
                 />
             ))}
         </div>
