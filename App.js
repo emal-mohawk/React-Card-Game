@@ -42,12 +42,19 @@ function App() {
         setPickedCardIds(null);
     }
 
+    function reset() {
+        setDeck(deck.concat(hand));
+        setHand([]);
+        setPickedCardIds(null);
+    }
+
     return (
         <>
         <Deck deck={deck} drawCard={drawCard} />
         <div className="buttons">
             <button onClick={() => deal(5)}>Deal 5</button>
             <button onClick={() => deal(7)}>Deal 7</button>
+            <button onClick={reset}>Reset</button>
         </div>
 
         <div className="hand">
